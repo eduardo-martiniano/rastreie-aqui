@@ -1,13 +1,13 @@
 export interface Checkpoint {
-  Date?: string
-  Description?: string
-  Destination?: string
-  Details?: string
+  date?: string
+  description?: string
+  destination?: string
+  details?: string
   ExtraInformation?: string
-  OriginalDescription?: string
-  OriginalDestination?: string
-  OriginalDetails?: string
-  OriginalExtraInformation?: string
-  PickupAddress?: string
-  Status?: string
+  originalDescription?: string
+  originalDestination?: string
+  originalDetails?: string
+  originalExtraInformation?: string
+  pickupAddress?: string
+  status?: string
 }

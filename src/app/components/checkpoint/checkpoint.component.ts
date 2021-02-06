@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { CheckpointService } from 'src/app/checkpoint.service';
 import { Checkpoint } from 'src/models/checkpoint.model';
+import { Order } from 'src/models/order.model';
+import { Package } from 'src/models/package.model';
 
 @Component({
   selector: 'app-checkpoint',
@@ -8,23 +13,29 @@ import { Checkpoint } from 'src/models/checkpoint.model';
 })
 export class CheckpointComponent implements OnInit {
 
-   checkpoint: Checkpoint = {
-    Date: "22/01/2021",
-    Description: "Encomenda encaminhada",
-    Destination: "CTC RECIFE - JABOATAO DOS GUARARAPES/PE - Brasil",
-    Details: "CTE CAJAMAR - CAJAMAR/SP - Brasil",
-    OriginalDescription: "Encomenda encaminhada",
-    OriginalDestination: "CTC RECIFE - JABOATAO DOS GUARARAPES/PE - Brasil",
-    OriginalDetails: "CTE CAJAMAR - CAJAMAR/SP - Brasil",
-    OriginalExtraInformation: "",
-    PickupAddress: "",
-    Status: "TRANSIT"
+  package!: Package;
+  checkpoints!: Checkpoint[]
+
+
+  form: FormGroup
+
+  constructor(private checkpointService: CheckpointService) {
+      this.form = new FormGroup({
+      trackingCode: new FormControl('LB970787297SE'),
+      locale: new FormControl('pt'),
+    })
   }
 
-  constructor() { }
-
   ngOnInit(): void {
+    this.getCheckpoints();
+  }
 
+  getCheckpoints(): void{
+    const order = this.form.value as Order
+    this.checkpointService.find(order).subscribe( result =>{
+      this.package = result[0]
+      this.checkpoints = this.package.checkpoints
+    })
   }
 
 }
