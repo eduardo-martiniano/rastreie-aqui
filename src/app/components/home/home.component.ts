@@ -23,4 +23,11 @@ export class HomeComponent implements OnInit {
   next(): void {
     this.router.navigate(['/track/'+ this.order.TrackingCode])
   }
+
+  get isValid(): boolean {
+    if (this.order.TrackingCode.length === 13){
+      return true;
+    }
+    return false;
+  }
 }
