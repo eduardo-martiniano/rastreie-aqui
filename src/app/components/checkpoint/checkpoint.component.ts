@@ -16,7 +16,6 @@ export class CheckpointComponent implements OnInit {
   package!: Package;
   checkpoints!: Checkpoint[]
 
-
   form: FormGroup
 
   constructor(private checkpointService: CheckpointService) {
@@ -27,7 +26,7 @@ export class CheckpointComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCheckpoints();
+   // this.getCheckpoints();
   }
 
   getCheckpoints(): void{

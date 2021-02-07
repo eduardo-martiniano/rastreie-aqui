@@ -1,0 +1,28 @@
+.footer-fixed {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.button-next {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #3f51b5;
+  color: white;
+  width: 100%;
+}
+
+.content {
+  color: #3f51b5;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-field {
+  width: 70%;
+  font-size: 30px;
+}

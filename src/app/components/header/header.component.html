@@ -1,8 +1,18 @@
 <mat-toolbar color="primary">
-  <i class="material-icons">local_shipping</i>
-  <span class="label">
-     Rastreie aqui
-  </span>
+  <div class="header">
+    <div class="label-icon">
+      <i class="material-icons">
+        local_shipping
+      </i>
+    </div>
+    <div class="back">
+      <a (click)="back()">
+        <i class="material-icons">
+          keyboard_backspace
+        </i>
+      </a>
+    </div>
+  </div>
 </mat-toolbar>
 
 

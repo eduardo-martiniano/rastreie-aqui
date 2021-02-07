@@ -12,12 +12,17 @@ import { CheckpointComponent } from './components/checkpoint/checkpoint.componen
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CheckpointComponent
+    CheckpointComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
