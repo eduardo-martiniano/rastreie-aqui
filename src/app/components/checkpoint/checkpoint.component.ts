@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CheckpointService } from 'src/app/checkpoint.service';
 import { Checkpoint } from 'src/models/checkpoint.model';
@@ -16,17 +17,18 @@ export class CheckpointComponent implements OnInit {
   package!: Package;
   checkpoints!: Checkpoint[]
 
-  form: FormGroup
+  form!: FormGroup
 
-  constructor(private checkpointService: CheckpointService) {
-      this.form = new FormGroup({
-      trackingCode: new FormControl('LB970787297SE'),
-      locale: new FormControl('pt'),
-    })
-  }
+  constructor(private checkpointService: CheckpointService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-   // this.getCheckpoints();
+    this.route.params.subscribe((code: any) => {
+      this.form = new FormGroup({
+        trackingCode: new FormControl(code.code),
+        locale: new FormControl('pt'),
+      })
+    })
+    this.getCheckpoints();
   }
 
   getCheckpoints(): void{

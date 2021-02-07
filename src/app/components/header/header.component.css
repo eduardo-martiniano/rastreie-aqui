@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  font-size: 40px;
 }
 
 .label-icon {
@@ -8,4 +9,8 @@
 
 .back {
   float: left;
+}
+
+.back:hover {
+  cursor: pointer;
 }
