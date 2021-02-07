@@ -35,7 +35,7 @@ export class CheckpointComponent implements OnInit {
     const order = this.form.value as Order
     this.checkpointService.find(order).subscribe( result =>{
       this.package = result[0]
-      this.checkpoints = this.package.checkpoints
+      this.checkpoints = this.package.checkpoints.reverse()
     })
   }
 
