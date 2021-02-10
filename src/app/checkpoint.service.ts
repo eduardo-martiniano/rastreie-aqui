@@ -14,6 +14,6 @@ export class CheckpointService {
   constructor(private http: HttpClient) { }
 
   find(order: Order): Observable<Package[]> {
-    return this.http.post<any>(this.baseUrl, order)
+    return this.http.post<any>(this.baseUrl, order);
   }
 }

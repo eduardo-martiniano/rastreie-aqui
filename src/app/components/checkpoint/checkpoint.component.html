@@ -1,3 +1,7 @@
+<div class="spinner" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
 <div *ngFor="let check of checkpoints" class="content">
   <div class="card">
     <div class="date">
@@ -14,4 +18,9 @@
       Para: {{check.destination}}
     </div>
   </div>
+</div>
+
+<div *ngIf="isUndefined" class="error">
+  <h2>O código de rastreio é invalido ou o pacote não está disponivel para rastreio!</h2>
+  <i class="material-icons" style="font-size: 50px;">report</i>
 </div>

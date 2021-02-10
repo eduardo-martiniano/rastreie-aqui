@@ -15,28 +15,35 @@ import { Package } from 'src/models/package.model';
 export class CheckpointComponent implements OnInit {
 
   package!: Package;
-  checkpoints!: Checkpoint[]
-
+  checkpoints!: Checkpoint[];
+  loading: boolean = true;
   form!: FormGroup
 
-  constructor(private checkpointService: CheckpointService, private route: ActivatedRoute) { }
+  constructor(private checkpointService: CheckpointService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((code: any) => {
       this.form = new FormGroup({
         trackingCode: new FormControl(code.code),
         locale: new FormControl('pt'),
-      })
-    })
+      });
+    });
     this.getCheckpoints();
+    this.loading = false;
   }
 
-  getCheckpoints(): void{
+  getCheckpoints(): boolean {
     const order = this.form.value as Order
-    this.checkpointService.find(order).subscribe( result =>{
-      this.package = result[0]
-      this.checkpoints = this.package.checkpoints.reverse()
-    })
+    this.checkpointService.find(order).subscribe(result =>{
+      this.package = result[0];
+      this.checkpoints = this.package.checkpoints.reverse();
+      return true;
+    });
+    return false;
+  }
+
+   get isUndefined(): boolean {
+    return this.package === undefined;
   }
 
 }

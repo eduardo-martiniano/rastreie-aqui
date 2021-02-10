@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   back(): void {
-    this.route.navigate([""])
+    this.route.navigate([""]);
   }
 
 }
