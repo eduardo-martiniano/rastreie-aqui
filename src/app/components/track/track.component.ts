@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CheckpointService } from 'src/app/checkpoint.service';
+import { TrackService } from 'src/app/track.service';
 import { Checkpoint } from 'src/models/checkpoint.model';
 import { Order } from 'src/models/order.model';
 import { Package } from 'src/models/package.model';
 
 @Component({
-  selector: 'app-checkpoint',
-  templateUrl: './checkpoint.component.html',
-  styleUrls: ['./checkpoint.component.css']
+  selector: 'app-track',
+  templateUrl: './track.component.html',
+  styleUrls: ['./track.component.css']
 })
-export class CheckpointComponent implements OnInit {
+export class TrackComponent implements OnInit {
 
   package!: Package;
   checkpoints!: Checkpoint[];
   loading: boolean = true;
   form!: FormGroup
 
-  constructor(private checkpointService: CheckpointService, private route: ActivatedRoute) {}
+  constructor(private checkpointService: TrackService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((code: any) => {
