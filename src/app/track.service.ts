@@ -7,7 +7,7 @@ import { Package } from 'src/models/package.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CheckpointService {
+export class TrackService {
 
   baseUrl = "https://api-track.ebanx.com/production/track"
 

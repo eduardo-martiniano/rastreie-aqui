@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { CheckpointService } from './checkpoint.service';
+import { TrackService } from './track.service';
 
-describe('CheckpointService', () => {
-  let service: CheckpointService;
+describe('TrackService', () => {
+  let service: TrackService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CheckpointService);
+    service = TestBed.inject(TrackService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CheckpointComponent } from './components/checkpoint/checkpoint.component';
+import { TrackComponent } from './components/track/track.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: "track/:code",
-    component: CheckpointComponent
+    component: TrackComponent
   }
 ];
 

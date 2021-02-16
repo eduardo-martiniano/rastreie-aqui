@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order } from 'src/models/order.model';
-import { CheckpointComponent } from '../checkpoint/checkpoint.component';
+import { TrackComponent } from '../track/track.component';
 
 @Component({
   selector: 'app-home',
