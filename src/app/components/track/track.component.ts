@@ -29,21 +29,25 @@ export class TrackComponent implements OnInit {
       });
     });
     this.getCheckpoints();
-    this.loading = false;
   }
 
-  getCheckpoints(): boolean {
+  getCheckpoints(): void {
     const order = this.form.value as Order
     this.checkpointService.find(order).subscribe(result =>{
       this.package = result[0];
       this.checkpoints = this.package.checkpoints.reverse();
-      return true;
     });
-    return false;
+    setTimeout(() => {
+      this.loading = false;
+    }, 500)
   }
 
-   get isUndefined(): boolean {
-    return this.package === undefined;
+  get isUndefined(): boolean {
+    return this.package === undefined && this.loading === false;
+  }
+
+  get showResume(): boolean {
+    return this.package != undefined;
   }
 
 }
