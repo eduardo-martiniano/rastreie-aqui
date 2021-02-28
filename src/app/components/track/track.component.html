@@ -17,7 +17,7 @@
     <span> Progresso: {{package.deliveryProgress}}% </span>
   </div>
   <div class="status">
-    <span> Status atual: {{package.status}} </span>
+    <span> Status: {{package.status | translate}} </span>
   </div>
 </div>
 
@@ -26,16 +26,20 @@
     <div class="card">
       <div class="date">
         <i class="material-icons" style="vertical-align: middle;">event</i>
-        {{check.date | date: "dd/MM/yyyy"}} <span class="date-label">{{check.status}}</span>
+        {{check.date | date: "dd/MM/yyyy"}} <span class="date-label">{{check.status | translate}}</span>
       </div>
       <div class="description">
         {{check.description}}
       </div>
       <div class="origin">
-        De: {{check.originalDetails}}
+        <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">place</i>
+        {{check.originalDetails}}
       </div>
-      <div class="destination">
-        Para: {{check.destination}}
+      <div *ngIf="check.destination != undefined && check.destination.length > 0">
+        <div class="destination">
+          <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">near_me</i>
+          {{check.destination}}
+        </div>
       </div>
     </div>
   </div>

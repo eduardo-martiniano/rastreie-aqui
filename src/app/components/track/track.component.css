@@ -16,6 +16,9 @@
 .description {
   margin-top: 10px;
   text-align: center;
+  margin-left: 11px;
+  margin-right: 11px;
+  padding: 5px;
 }
 
 .date {
@@ -32,10 +35,12 @@
 }
 
 .origin {
+  display: flex;
   padding: 10px;
 }
 
 .destination {
+  display: flex;
   padding: 10px;
 }
 

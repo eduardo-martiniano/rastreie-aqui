@@ -16,7 +16,7 @@ export class TrackComponent implements OnInit {
 
   package!: Package;
   checkpoints!: Checkpoint[];
-  loading: boolean = true;
+  loading: boolean = false;
   form!: FormGroup
 
   constructor(private checkpointService: TrackService, private route: ActivatedRoute) {}
@@ -32,8 +32,9 @@ export class TrackComponent implements OnInit {
   }
 
   getCheckpoints(): void {
+    this.loading = true;
     const order = this.form.value as Order
-    this.checkpointService.find(order).subscribe(result =>{
+    this.checkpointService.find(order).subscribe( result =>{
       this.package = result[0];
       this.checkpoints = this.package.checkpoints.reverse();
     });
