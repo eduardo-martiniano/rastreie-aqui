@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { promise } from 'selenium-webdriver';
 import { Order } from 'src/models/order.model';
 import { Package } from 'src/models/package.model';
 
@@ -13,7 +14,11 @@ export class TrackService {
 
   constructor(private http: HttpClient) { }
 
-  find(order: Order): Observable<Package[]> {
-    return this.http.post<any>(this.baseUrl, order);
+  find(order: Order): Promise<any> {
+    return new Promise((resolve, reject) => {
+       this.http.post<any>(this.baseUrl, order).subscribe(
+         result => resolve(result),
+         () => reject(400));
+    });
   }
 }

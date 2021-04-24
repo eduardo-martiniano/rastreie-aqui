@@ -34,13 +34,13 @@ export class TrackComponent implements OnInit {
   getCheckpoints(): void {
     this.loading = true;
     const order = this.form.value as Order
-    this.checkpointService.find(order).subscribe( result =>{
+    this.checkpointService.find(order).then(result => {
       this.package = result[0];
       this.checkpoints = this.package.checkpoints.reverse();
-    });
-    setTimeout(() => {
       this.loading = false;
-    }, 500)
+    }).catch(() => {
+      this.loading = false;
+    });
   }
 
   get isUndefined(): boolean {
