@@ -1,5 +1,5 @@
 <div class="spinner" *ngIf="loading">
-  <mat-spinner></mat-spinner>
+  <mat-spinner color="warn"></mat-spinner>
 </div>
 
 <div *ngIf="isUndefined" class="error">
@@ -43,4 +43,5 @@
       </div>
     </div>
   </div>
+  <app-footer *ngIf="!loading && !isUndefined"></app-footer>
 </div>

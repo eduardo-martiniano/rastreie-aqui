@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TranslatePipe } from './pipes/translate.pipe';
     HeaderComponent,
     TrackComponent,
     HomeComponent,
-    TranslatePipe
+    TranslatePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
