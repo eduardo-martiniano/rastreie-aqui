@@ -1,0 +1,14 @@
+<div class="card">
+  <p>
+    <mat-icon>local_post_office</mat-icon>
+    {{event.events}}
+  </p>
+  <p>
+    <mat-icon>today</mat-icon>
+    {{event.date | date: "dd/MM/yyyy HH:mm"}}
+  </p>
+  <p>
+    <mat-icon>place</mat-icon>
+    {{event.local}}
+  </p>
+</div>

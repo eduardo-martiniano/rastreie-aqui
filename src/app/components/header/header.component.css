@@ -15,3 +15,9 @@
 .back:hover {
   cursor: pointer;
 }
+
+#nav-bar {
+  background-color: rgb(8, 119, 63);
+  height: 10%;
+  max-height: 70px;
+}

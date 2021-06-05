@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { TrackService } from 'src/app/track.service';
-import { Checkpoint } from 'src/models/checkpoint.model';
-import { Order } from 'src/models/order.model';
-import { Package } from 'src/models/package.model';
+import { EventOrder } from 'src/models/event.mode';
 
 @Component({
   selector: 'app-track',
@@ -14,41 +10,21 @@ import { Package } from 'src/models/package.model';
 })
 export class TrackComponent implements OnInit {
 
-  package!: Package;
-  checkpoints!: Checkpoint[];
-  loading: boolean = false;
-  form!: FormGroup
+  eventsList!: EventOrder[];
+  code: any;
+  loading = true;
 
-  constructor(private checkpointService: TrackService, private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private trackService: TrackService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((code: any) => {
-      this.form = new FormGroup({
-        trackingCode: new FormControl(code.code),
-        locale: new FormControl('pt'),
-      });
+    this.route.params.subscribe(order => {
+      this.code = order.code;
     });
-    this.getCheckpoints();
-  }
 
-  getCheckpoints(): void {
-    this.loading = true;
-    const order = this.form.value as Order
-    this.checkpointService.find(order).then(result => {
-      this.package = result[0];
-      this.checkpoints = this.package.checkpoints.reverse();
-      this.loading = false;
-    }).catch(() => {
+    this.trackService.find(this.code).then(response => {
+      this.eventsList = response.data.events.reverse();
       this.loading = false;
     });
-  }
-
-  get isUndefined(): boolean {
-    return this.package === undefined && this.loading === false;
-  }
-
-  get showResume(): boolean {
-    return this.package != undefined;
   }
 
 }

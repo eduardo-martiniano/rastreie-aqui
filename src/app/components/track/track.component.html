@@ -1,47 +1,7 @@
+<div *ngIf="!loading">
+  <app-event *ngFor="let event of eventsList" [event]="event"></app-event>
+</div>
 <div class="spinner" *ngIf="loading">
   <mat-spinner color="warn"></mat-spinner>
 </div>
-
-<div *ngIf="isUndefined" class="error">
-  <h2>O código de rastreio é invalido ou o pacote não está disponivel para rastreio!</h2>
-  <i class="material-icons" style="font-size: 50px;">report</i>
-</div>
-
-<div *ngIf="showResume" class="resume">
-  <div class="progress-bar">
-  </div>
-  <div class="days-in-transit">
-    <span> Dias em trânsito: {{package.daysInTransit}} </span>
-  </div>
-  <div class="progress">
-    <span> Progresso: {{package.deliveryProgress}}% </span>
-  </div>
-  <div class="status">
-    <span> Status: {{package.status | translate}} </span>
-  </div>
-</div>
-
-<div class="content">
-  <div *ngFor="let check of checkpoints">
-    <div class="card">
-      <div class="date">
-        <i class="material-icons" style="vertical-align: middle;">event</i>
-        {{check.date | date: "dd/MM/yyyy"}} <span class="date-label">{{check.status | translate}}</span>
-      </div>
-      <div class="description">
-        {{check.description}}
-      </div>
-      <div class="origin">
-        <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">place</i>
-        {{check.originalDetails}}
-      </div>
-      <div *ngIf="check.destination != undefined && check.destination.length > 0">
-        <div class="destination">
-          <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">near_me</i>
-          {{check.destination}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <app-footer *ngIf="!loading && !isUndefined"></app-footer>
-</div>
+<app-footer *ngIf="!loading"></app-footer>

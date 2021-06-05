@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import {MatIconModule} from '@angular/material/icon';
-import { TrackComponent } from './components/track/track.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,16 +17,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { TrackComponent } from './components/track/track.component';
+import { EventComponent } from './components/event/event.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TrackComponent,
     HomeComponent,
     TranslatePipe,
-    FooterComponent
+    FooterComponent,
+    TrackComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,

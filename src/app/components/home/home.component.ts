@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Order } from 'src/models/order.model';
-import { TrackComponent } from '../track/track.component';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,10 +7,7 @@ import { TrackComponent } from '../track/track.component';
 })
 export class HomeComponent implements OnInit {
 
-  order: Order = {
-    TrackingCode: "",
-    locale: "pt"
-  }
+  trackingCode = "";
 
   constructor(private router: Router) { }
 
@@ -21,11 +15,11 @@ export class HomeComponent implements OnInit {
   }
 
   next(): void {
-    this.router.navigate(['/track/'+ this.order.TrackingCode])
+    this.router.navigate(['/track/'+ this.trackingCode]);
   }
 
   get isValid(): boolean {
-    if (this.order.TrackingCode.length === 13){
+    if (this.trackingCode.length === 13){
       return true;
     }
     return false;
