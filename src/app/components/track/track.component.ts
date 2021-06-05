@@ -13,6 +13,7 @@ export class TrackComponent implements OnInit {
   eventsList!: EventOrder[];
   code: any;
   loading = true;
+  error = false;
 
   constructor(private route: ActivatedRoute, private trackService: TrackService) { }
 
@@ -22,7 +23,14 @@ export class TrackComponent implements OnInit {
     });
 
     this.trackService.find(this.code).then(response => {
-      this.eventsList = response.data.events.reverse();
+      if (response.success) {
+        this.eventsList = response.data.events.reverse();
+      }
+      else { this.error = true; }
+      this.loading = false;
+
+    }).catch(() => {
+      this.error = true;
       this.loading = false;
     });
   }

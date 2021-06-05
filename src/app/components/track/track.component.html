@@ -4,4 +4,8 @@
 <div class="spinner" *ngIf="loading">
   <mat-spinner color="warn"></mat-spinner>
 </div>
-<app-footer *ngIf="!loading"></app-footer>
+<div *ngIf="error && !loading" class="error">
+  <h2>O código de rastreio é invalido ou o pacote não está disponivel para rastreio!</h2>
+  <mat-icon id="error-icon">report</mat-icon>
+</div>
+<app-footer *ngIf="!loading && !error"></app-footer>

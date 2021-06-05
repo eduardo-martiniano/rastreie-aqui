@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   next(): void {
-    this.router.navigate(['/track/'+ this.trackingCode]);
+    this.router.navigate(['/track/'+ this.trackingCode.toUpperCase()]);
   }
 
   get isValid(): boolean {

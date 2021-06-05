@@ -4,3 +4,14 @@
   justify-content: center;
   margin-top: 200px;
 }
+
+.error {
+  margin-top: 20%;
+  padding: 10px;
+  text-align: center;
+}
+
+#error-icon {
+  font-size: 40px;
+  color: red;
+}

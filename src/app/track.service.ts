@@ -14,7 +14,7 @@ export class TrackService {
     return new Promise((resolve, reject) => {
        this.http.get<any>(this.baseUrl + "/" + code).subscribe(
          result => resolve(result),
-         () => reject(400));
+         error => reject(error));
     });
   }
 }
