@@ -1,17 +1,28 @@
 .spinner {
+  height: 90%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  align-items: center;
+}
+
+.spinner ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: rgb(140, 82, 255);
 }
 
 .error {
-  margin-top: 20%;
-  padding: 10px;
+  display: flex;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: rgb(140, 82, 255);
+}
+
+.error h2 {
+  padding: 10px;
 }
 
 #error-icon {
   font-size: 40px;
-  color: red;
+  color: rgb(140, 82, 255);
 }

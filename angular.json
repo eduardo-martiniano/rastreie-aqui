@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "RastreieAqui"
+  "defaultProject": "RastreieAqui",
+  "cli": {
+    "analytics": "a911f2a4-4a8c-4419-aa61-9fcf5b16b54a"
+  }
 }

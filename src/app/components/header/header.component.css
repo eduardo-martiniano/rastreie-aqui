@@ -1,23 +1,16 @@
-.header {
-  width: 100%;
-  font-size: 40px;
-  color: white;
+mat-toolbar {
+  background-color: rgb(140, 82, 255);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  padding-left: 10px;
 }
 
-.label-icon {
-  float: right;
+img {
+  width: 230px;
 }
 
-.back {
-  float: left;
-}
-
-.back:hover {
+i:hover {
   cursor: pointer;
-}
-
-#nav-bar {
-  background-color: rgb(8, 119, 63);
-  height: 10%;
-  max-height: 70px;
 }

@@ -1,11 +1,12 @@
+<div class="spinner" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
 <div *ngIf="!loading">
   <app-event *ngFor="let event of eventsList" [event]="event"></app-event>
 </div>
-<div class="spinner" *ngIf="loading">
-  <mat-spinner color="warn"></mat-spinner>
-</div>
 <div *ngIf="error && !loading" class="error">
-  <h2>O código de rastreio é invalido ou o pacote não está disponivel para rastreio!</h2>
-  <mat-icon id="error-icon">report</mat-icon>
+  <div>
+    <h2>O código de rastreio é invalido ou o pacote não está disponivel para rastreio!</h2>
+    <mat-icon id="error-icon">report</mat-icon>
+  </div>
 </div>
-<app-footer *ngIf="!loading && !error"></app-footer>
